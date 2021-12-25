@@ -26,7 +26,7 @@ namespace Tests
             string expectedErrorMessageText = "Email or password is invalid";
             Assert.AreEqual(expectedErrorMessageText, actualErrorMessageText, $"{expectedErrorMessageText} is not equal for {actualErrorMessageText}");
             signIn.ClickBack();
-            Thread.Sleep(2000);
+           
 
         }
     }
