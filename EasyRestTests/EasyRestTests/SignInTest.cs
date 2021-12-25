@@ -28,7 +28,6 @@ namespace Tests
             signIn.ClickBack();
             Thread.Sleep(2000);
 
-
         }
     }
 }
