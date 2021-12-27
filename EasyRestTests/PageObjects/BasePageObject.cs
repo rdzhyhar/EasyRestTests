@@ -3,11 +3,11 @@ using System;
 
 namespace PageObjects
 {
-    public class BasePage
+    public class BasePageObject
     {
         protected static IWebDriver driver;
 
-        public BasePage(IWebDriver webDriver)
+        public BasePageObject(IWebDriver webDriver)
         {
             driver = webDriver;
         }
