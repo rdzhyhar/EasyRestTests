@@ -5,13 +5,13 @@ using System.Text;
 
 namespace PageObjects
 {
-    public class SignInPage : BasePage
+    public class SignInPageObject : BasePageObject
     {
-        public SignInPage(IWebDriver driver) : base(driver)
+        public SignInPageObject(IWebDriver driver) : base(driver)
         {
 
         }
-        private IWebElement btnBack => driver.FindElement(By.TagName("svg"));
+        private IWebElement ReturnBackButton => driver.FindElement(By.TagName("svg"));
         private IWebElement btnSignUp => driver.FindElement(By.XPath("//span[text()='Sign Up']"));
         private IWebElement txtEmail => driver.FindElement(By.XPath("//input[@name='email']"));
         private IWebElement txtPassword => driver.FindElement(By.XPath("//input[@name='password']"));
@@ -30,7 +30,7 @@ namespace PageObjects
         public void SendTextToEmail(string text) => txtEmail.SendKeys(text);
         public void SendTextToPassword(string text) => txtPassword.SendKeys(text);
 
-        public void ClickBack() => btnBack.Click();
+        public void ClickReturnBackButton() => ReturnBackButton.Click();
         public void ClickSubmit() => btnSubmit.Click();
         public string GetErrorMessageEmailOrPasswordIsNotValid() => emEmailOrPasswordIsNotValid.Text;
 

@@ -12,20 +12,22 @@ namespace Tests
         [Test]
         public void NegativeEmailAndPassword()
         {
-            BasePage basePage = new BasePage(driver);
-            basePage.ClickSignIn();
+            BasePageObject basePageObject = new BasePageObject(driver);
+            basePageObject.ClickSignIn();
             Thread.Sleep(3000);
-            SignInPage signIn = new SignInPage(driver);
+            SignInPageObject signInPageObject = new SignInPageObject(driver);
 
-            signIn.SendTextToEmail("negative_email@test.com");
-            signIn.SendTextToPassword("00000000");
+            signInPageObject.SendTextToEmail("negative_email@test.com");
+            signInPageObject.SendTextToPassword("00000000");
             Thread.Sleep(2000);
-            signIn.ClickSubmit();
+            signInPageObject.ClickSubmit();
             Thread.Sleep(2000);
-            string actualErrorMessageText = signIn.GetErrorMessageEmailOrPasswordIsNotValid();
+            string actualErrorMessageText = signInPageObject.GetErrorMessageEmailOrPasswordIsNotValid();
             string expectedErrorMessageText = "Email or password is invalid";
-            Assert.AreEqual(expectedErrorMessageText, actualErrorMessageText, $"{expectedErrorMessageText} is not equal for {actualErrorMessageText}");
-            signIn.ClickBack();
+            Assert.AreEqual(expectedErrorMessageText,
+                            actualErrorMessageText,
+                            $"{expectedErrorMessageText} is not equal for {actualErrorMessageText}");
+            signInPageObject.ClickReturnBackButton();
            
 
         }
